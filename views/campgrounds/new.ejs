@@ -1,0 +1,41 @@
+<% layout('layouts/boilerplate') %>
+
+    <body>
+        <h1 class="text-center">New Campground</h1>
+        <div class="col-6 offset-3">
+            <form action="/campgrounds" method="POST" novalidate class="validated-form">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="campground[title]" required>
+                    <div class="valid-feedback">lookn gr888</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" name="campground[location]" required>
+                    <div class="valid-feedback">lookn gr888</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">image</label>
+                    <input class="form-control" type="text" id="image" name="campground[image]" required>
+                    <div class="valid-feedback">lookn gr888</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="textarea" id="description" name="campground[description]"
+                        required></textarea>
+                    <div class="valid-feedback">lookn gr888</div>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input type="text" class="form-control" id="price" aria-label="Amount (to the nearest dollar)"
+                        name="campground[price]" required>
+                    <span class="input-group-text">.00</span>
+                    <div class="valid-feedback">lookn gr888</div>
+                </div>
+                <button class="btn btn-primary">Add Campground</button>
+            </form>
+            <a href="/campgrounds">
+                <div class="btn btn-danger">Back</div>
+            </a>
+        </div>
+
