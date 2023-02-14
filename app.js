@@ -128,7 +128,9 @@ app.post('/campgrounds/:id/reviews', validateReview, catchAsync(async (req, res,
 
 app.delete('/campgrounds/:id/reviews/:reviewId', catchAsync(async (req, res, next) => {
     const { id, reviewId } = req.params;
+    // remove the reference in the reviews array
     const campground = await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+    //remove the actual review from the db
     const review = await Review.findByIdAndDelete(reviewId);
     res.redirect(`/campgrounds/${id}`)
 }))

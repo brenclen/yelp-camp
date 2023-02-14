@@ -14,7 +14,8 @@ const CampgroundSchema = new Schema({
     }]
 })
 
-//after findOneAndDelete (includes multiple delete methods, see docs) deletedDoc is object containing what was just deleted, then remove (delete all reviews associated with it)
+//if there was a document to delete, after we delete the campground from DB (post), we must delete it's children in order to not have orphaned reviews, etc
+//this is called by the findByIdAndDelete function in app.js
 CampgroundSchema.post('findOneAndDelete', async (deletedDoc) => {
     if (deletedDoc) {
         await Review.deleteMany({
